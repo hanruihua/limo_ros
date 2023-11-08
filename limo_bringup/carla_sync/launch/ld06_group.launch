@@ -1,0 +1,7 @@
+<launch>
+    <node name="LD06" pkg="ldlidar" type="ldlidar" args="LD06" output="screen" respawn="true"/>
+
+    <!-- <node name="remapper" pkg="tf_remapper_cpp" type="tf_remap">
+        <rosparam param="mappings">[{old: laser_link, new: laser_link2}]</rosparam>
+    </node> -->
+</launch>

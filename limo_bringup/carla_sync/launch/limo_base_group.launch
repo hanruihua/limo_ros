@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="namespace" value="$(optenv NAME_SPACE)"/>
+	<!-- ttyTHS1 for NVIDIA nano serial port-->
+	<!-- ttyUSB0 for USB serial port -->
+	<arg name="port_name" default="ttyTHS0" />
+	<arg name="odom_frame" default="odom" />
+	<arg name="imu_frame" default="imu_link" />
+	<arg name="base_frame" default="base_link" />
+	<arg name="use_mcnamu" default="false" />
+	<arg name="pub_odom_tf" default="" />
+	<group ns="$(arg namespace)">
+		<node name="limo_base_node" pkg="limo_base" type="limo_base_node" output="screen" >
+		    <param name="port_name" value="$(arg port_name)" />
+		    <param name="odom_frame" value="$(arg odom_frame)" />
+		    <param name="imu_frame" value="$(arg imu_frame)" />
+		    <param name="base_frame" value="$(arg base_frame)" />
+		    <param name="use_mcnamu" value="$(arg use_mcnamu)" />
+		    <param name="pub_odom_tf" value="$(arg pub_odom_tf)" />
+		    <remap from="/odom" to="/$(arg namespace)/odom"/>
+		    <remap from="/cmd_vel" to="/$(arg namespace)/cmd_vel"/>
+		    <remap from="/imu" to="/$(arg namespace)/imu"/>
+		</node>
+	</group>
+
+</launch>
+

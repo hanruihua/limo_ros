@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<launch> 
+    <!-- ttyTHS1 for NVIDIA nano serial port-->
+    <!-- ttyUSB0 for IPC USB serial port -->
+    <arg name="port_name" default="ttyTHS0" />
+    <arg name="use_mcnamu" default="false" />
+    <arg name="pub_odom_tf" default="false" />
+    <arg name="namespace" value="$(optenv NAME_SPACE)"/>
+
+    <include file="$(find limo_bringup)/carla_sync/launch/limo_base_group.launch">
+        <arg name="port_name" default="$(arg port_name)" />
+        <arg name="use_mcnamu" default="$(arg use_mcnamu)" />
+        <arg name="pub_odom_tf" default="$(arg pub_odom_tf)" />
+	    <arg name="imu_frame" default="$(arg namespace)/imu_link" />
+    </include>
+
+    <!-- <include file="$(find ydlidar_ros)/launch/X2L_group.launch" /> -->
+    <include file="$(find limo_bringup)/carla_sync/launch/ld06_group.launch" />
+
+    <node pkg="tf" type="static_transform_publisher" name="base_link_to_camera_link" args="0.105 0 0.1 0.0 0.0 0.0 /$(arg namespace)/base_link /$(arg namespace)/camera_link 10" />
+
+    <node pkg="tf" type="static_transform_publisher" name="base_link_to_imu_link" args="0.0 0.0 0.0 0.0 0.0 0.0 /$(arg namespace)/base_link /$(arg namespace)/imu_link 10" />
+
+    <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser_link" args="0.105 0.0 0.08 0.0 0.0 0.0 /$(arg namespace)/base_link /$(arg namespace)/laser_link 10" />
+
+</launch>

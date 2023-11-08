@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch> 
+    <arg name="namespace" value="$(optenv NAME_SPACE)"/>
+	<group ns="$(arg namespace)">
+		<include file="$(find limo_bringup)/carla_sync/launch/limo_start_group.launch"/>
+	</group>
+
+</launch>
