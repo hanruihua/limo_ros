@@ -4,7 +4,7 @@
     <!-- ttyUSB0 for IPC USB serial port -->
     <arg name="port_name" default="ttyTHS0" />
     <arg name="use_mcnamu" default="false" />
-    <arg name="pub_odom_tf" default="false" />
+    <arg name="pub_odom_tf" default="true" />
 
     <include file="$(find limo_base)/launch/limo_base.launch">
         <arg name="port_name" default="$(arg port_name)" />
