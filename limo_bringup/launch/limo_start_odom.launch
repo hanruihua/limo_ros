@@ -13,6 +13,8 @@
     </include>
 
     <include file="$(find ldlidar)/launch/ld06.launch" />
+    <include file="$(find nlink_parser)/launch/linktrack_aoa.launch" />
+    
 
     <param name="robot_description" command="$(find xacro)/xacro '$(find limo_description)/urdf/limo_ackerman.xacro'" />
 
@@ -22,7 +24,8 @@
     <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser_link" args="0.105 0.0 0.08 0.0 0.0 3.14 /base_link /laser_link 10" />  <!-- roll 180 -->
     <node pkg="tf" type="static_transform_publisher" name="base_link_to_imu_link" args="0.0 0.0 0.0 0.0 0.0 0.0 /base_link /imu_link 20" />
 
-    <node pkg='tf' type='static_transform_publisher' name='tf1' args='0 0 0 0 0 0 body base_link 20'/>
+    <!-- <node pkg='tf' type='static_transform_publisher' name='tf1' args='0 0 0 0 0 0 body base_link 20'/> -->
+    
 
    
 
