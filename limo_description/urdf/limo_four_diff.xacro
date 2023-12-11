@@ -44,6 +44,16 @@
         </collision>
     </link>
 
+    <!-- <link name="inertial_link">
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" />
+            <mass value="${base_mass}" />
+            <inertia ixx="0" ixy="0" ixz="0" 
+                     iyy="0" iyz="0" 
+                     izz="0" />
+        </inertial>
+    </link> -->
+
     <link name="inertial_link">
         <inertial>
             <origin xyz="0.0 0.0 0.0" />
