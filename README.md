@@ -13,7 +13,7 @@ This repository contains ROS packages for limo.
 Clone the repository and catkin_make:
 ```
     $ cd ~/catkin_ws/src
-    $ git clone https://github.com/agilexrobotics/limo_ros.git
+    $ git clone https://github.com/hanruihua/limo_ros.git
     $ cd ..
     $ catkin_make
 ```
